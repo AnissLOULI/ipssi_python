@@ -3,6 +3,6 @@
 # Description
 
 Voici mes fichiers d'examen
-*ex01
-*ex02
-*ex03
+* ex01
+* ex02
+* ex03

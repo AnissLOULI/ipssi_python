@@ -2,9 +2,10 @@
 
 import os
 apath = os.path.expanduser("~/Documents/gits/exam2/ex05/docker-compose.yml")
-print ("chemin etendu en", apath)
 
+image = 'image'
 fichier = open("docker-compose.yml", "r")
 for line in fichier:
-	print(line)
+	if image in line:
+		print(line.strip().split()[1])
 fichier.close()

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -v $(out):/tmp ipssi/ex14:1 .
+docker run -it -v /tmp:/out ipssi/ex14:1 /bin/sh

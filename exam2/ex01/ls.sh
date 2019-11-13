@@ -1,9 +1,12 @@
 #!/bin/bash
 
 if [ -e $1 ]; then
-	ls -la $1 >> /tmp/ls.log
+	ls -l $1 >> /tmp/ls.log
 	echo "ls ok"
 else
-	echo 'ls: cannot acces '"$1"': No such file or directory' >> /tmp/ls_err.log
+	ls $1 2>> /tmp/ls_err.log
 	echo "ls FAIL"
+	exit 2
 fi
+
+exit 0

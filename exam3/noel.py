@@ -25,15 +25,18 @@ def show_noel(date_donnee):
 
     c = calendar.TextCalendar (calendar.MONDAY)
     
+    calendrier = c.formatmonth (date_donnee.year, 12, 1, 0)
+
     if date_donnee.day > 25 and date_donnee.month > 11:
-        print (c.formatmonth (date_donnee.year, 12, 1, 0))
         for i in range (1, 13, 1):
-            print (c.formatmonth (date_donnee.year + 1, i, 1, 0))
+            calendrier = calendrier + c.formatmonth (date_donnee.year + 1, i, 1, 0)
+        return calendrier
     elif date_donnee.day == 25 and date_donnee.month == 12:
         return show_tree(10)
     else:
         for i in range (date_donnee.month, 13, 1):
-            print (c.formatmonth (date_donnee.year, i, 1, 0))
+            calendrier = c.formatmonth (date_donnee.year, i, 1, 0)
+        return calendrier
 
 if __name__ == "__main__":
     print(show_noel(sys.argv))

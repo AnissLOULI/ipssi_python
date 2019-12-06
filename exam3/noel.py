@@ -1,35 +1,39 @@
+#!/usr/bin/python3
+
 import sys
 import calendar
 from datetime import datetime
 from datetime import date
+from tree import show_tree
 
-def show_noel(d):
-    if len(d) == 1:
-        d = date.today()
+def show_noel(date_donnee):
+    if len(date_donnee) == 1:
+            date_donnee = datetime.now()
     else:
-        d = d[1]
-        d = datetime.strptime(d, '%Y-%m-%d').date()
-
-    if d.day > 25 and d.month == 12:
-        noel = date(d.year + 1, 12, 25)
-    else:
-        noel = date(d.year , 12, 25)
+        date_donnee = date_donnee[1]
+        date_donnee = datetime.strptime(date_donnee, '%Y-%m-%d')
     
-    jours_noel = noel - d
+    if date_donnee.day > 25 and date_donnee.month > 11:
+        noel = datetime(date_donnee.year + 1, 12, 25)
+    else:
+        noel = datetime(date_donnee.year, 12, 25)
+    
+    jours_noel = (noel - date_donnee).days
+    
+
+    print(jours_noel, "days before christmas\n")
 
     c = calendar.TextCalendar (calendar.MONDAY)
-    stra = c.formatmonth (d.year, d.month, 1, 0)
-
-    if d.day > 25 and d.month > 11:
-        print (stra)
+    
+    if date_donnee.day > 25 and date_donnee.month > 11:
+        print (c.formatmonth (date_donnee.year, 12, 1, 0))
         for i in range (1, 13, 1):
-            calendrier = c.formatmonth (d.year + 1, i, 1, 0)
+            print (c.formatmonth (date_donnee.year + 1, i, 1, 0))
+    elif date_donnee.day == 25 and date_donnee.month == 12:
+        return show_tree(10)
     else:
-        for i in range (d.month, 13, 1):
-            calendrier = c.formatmonth (d.year, i, 1, 0)
+        for i in range (date_donnee.month, 13, 1):
+            print (c.formatmonth (date_donnee.year, i, 1, 0))
 
-    return str(jours_noel.days) + " days before christmas\n"
-
-
-
-
+if __name__ == "__main__":
+    print(show_noel(sys.argv))

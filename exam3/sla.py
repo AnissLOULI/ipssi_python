@@ -1,9 +1,17 @@
+#!/usr/bin/python3
+
 import sys
-from datetime import datetime
+import time
+import math
 
-pourcentage_indispo = int(sys.argv[1])
+def show_sla(pourcentage):
+    indisponibilite=3600*24*365.25*((100-pourcentage)/100)
+    heure = int(indisponibilite / 3600)
+    minute = int(indisponibilite % 3600 / 60)
+    seconde = int(indisponibilite % 3600 % 60)
 
-annee_en_sec = 3600 * 24 * 365.25
+    return ("{}h {}m {}s".format(heure, minute,seconde))
 
-tps_indipo = pourcentage_indispo
-print (annee_en_sec)
+
+if __name__ == "__main__":
+    print(show_sla(float(sys.argv[1])))

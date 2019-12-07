@@ -2,13 +2,12 @@
 
 import sys
 import time
-import math
 
-def show_sla(pourcentage):
-    indisponibilite=3600*24*365.25*((100-pourcentage)/100)
-    heure = int(indisponibilite / 3600)
-    minute = int(indisponibilite % 3600 / 60)
-    seconde = int(indisponibilite % 3600 % 60)
+def show_sla (pourcentage):
+    indisp_en_sec = 3600 * 24 * 365.25 * ((100 - pourcentage) / 100)
+    heure = int (indisp_en_sec / 3600)
+    minute = int (indisp_en_sec % 3600 / 60)
+    seconde = int (indisp_en_sec % 3600 % 60)
 
     return ("{}h {}m {}s".format(heure, minute,seconde))
 

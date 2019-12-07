@@ -2,6 +2,7 @@
 
 import sys
 from math import *
+from random import *
 
 def show_tree (largeur_du_sapin):
     hauteur_tronc = floor ((largeur_du_sapin / 5)) + 1
@@ -15,8 +16,11 @@ def show_tree (largeur_du_sapin):
         tronc = 3
     
     sapin = ""
+
+    
     
     for i in range (1, largeur_du_sapin + 1, 2):
+        nb_de_boules = randint(1, 5)
         sapin = sapin + (i * "x").center(largeur_du_sapin)
         sapin = sapin + "\n"
     

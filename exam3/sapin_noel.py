@@ -21,9 +21,13 @@ def show_tree (largeur_du_sapin):
     
     for i in range (1, largeur_du_sapin + 1, 2):
         nb_de_boules = randint(1, 5)
-        sapin = sapin + (i * "x").center(largeur_du_sapin)
-        sapin = sapin + "\n"
-    
+        if 2 * nb_de_boules < i:
+            sapin = sapin + ((nb_de_boules * "O") + ((i - 2 * nb_de_boules) * "x") + (nb_de_boules * "O")).center(largeur_du_sapin)
+            sapin = sapin + "\n"
+        else:
+            sapin = sapin + (i * "x").center(largeur_du_sapin)
+            sapin = sapin + "\n"
+
     for i in range (hauteur_tronc):
         if (i < hauteur_tronc - 1):
             sapin = sapin + (tronc * "X").center(largeur_du_sapin)

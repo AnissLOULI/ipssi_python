@@ -22,10 +22,10 @@ def show_tree (largeur_du_sapin):
     
     for i in range (hauteur_tronc):
         if (i < hauteur_tronc - 1):
-            sapin = sapin + (tronc * "X").center(largeur_du_sapin)
+            sapin = sapin + (tronc * "x").center(largeur_du_sapin)
             sapin = sapin + "\n"
         else:
-            sapin = sapin + (tronc * "X").center(largeur_du_sapin)
+            sapin = sapin + (tronc * "x").center(largeur_du_sapin)
     
     return sapin
 

@@ -20,12 +20,12 @@ def clean_downloads (dossier):
             taille_fichier = os.stat (dossier+fichier).st_size
             if jours_depuis_creation > 10 and taille_fichier > 6250000:
                 print (fichier)
-                choix = input ("[yes/No]?")
+                choix = input ("[yes/No]?\n")
                 if choix == "y":
                     os.remove (dossier+fichier)
                     print (fichier+" delete\n")
                 else:
-                    print (fichier+" keep\n")
+                    print("")
             else:
                 if jours_depuis_creation > 10:
                     print (fichier)
@@ -34,7 +34,7 @@ def clean_downloads (dossier):
                     try:
                         os.mkdir (dossier+annee_mois_du_fichier)
                     except:
-                        print ("directory exists already")
+                        ligne_bidon = 0
                     print ("moving into "+annee_mois_du_fichier+" : "+fichier+"\n") 
                     shutil.move (dossier+fichier,dossier+annee_mois_du_fichier)
                 
